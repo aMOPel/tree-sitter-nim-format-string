@@ -25,38 +25,310 @@
           {
             "type": "SYMBOL",
             "name": "_everything_else"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "double_curlies"
           }
         ]
       }
-    },
-    "_everything_else": {
-      "type": "PATTERN",
-      "value": "[^\\n\\r\\s]"
     },
     "matching_curlies": {
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "{"
-        },
-        {
-          "type": "ALIAS",
+          "type": "FIELD",
+          "name": "opening_curly",
           "content": {
-            "type": "REPEAT",
-            "content": {
-              "type": "SYMBOL",
-              "name": "_everything_else"
-            }
-          },
-          "named": true,
-          "value": "everything_else_inside"
+            "type": "SYMBOL",
+            "name": "opening_curly"
+          }
         },
         {
-          "type": "STRING",
-          "value": "}"
+          "type": "FIELD",
+          "name": "nim_expression",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "REPEAT1",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "PATTERN",
+                    "value": "[^:={}\\n\\r\\s]"
+                  },
+                  {
+                    "type": "FIELD",
+                    "name": "escaped_curly",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "escaped_curly"
+                    }
+                  }
+                ]
+              }
+            },
+            "named": true,
+            "value": "nim_expression"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "equals",
+              "content": {
+                "type": "SYMBOL",
+                "name": "equals"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "format_specifiers"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "closing_curly",
+          "content": {
+            "type": "SYMBOL",
+            "name": "closing_curly"
+          }
         }
       ]
+    },
+    "format_specifiers": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "colon"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "fill_align",
+              "content": {
+                "type": "SYMBOL",
+                "name": "fill_align"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "sign",
+              "content": {
+                "type": "SYMBOL",
+                "name": "sign"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "hash",
+              "content": {
+                "type": "SYMBOL",
+                "name": "hash"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "zero",
+              "content": {
+                "type": "SYMBOL",
+                "name": "zero"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "min_width",
+              "content": {
+                "type": "SYMBOL",
+                "name": "min_width"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "precision",
+              "content": {
+                "type": "SYMBOL",
+                "name": "precision"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "type",
+              "content": {
+                "type": "SYMBOL",
+                "name": "type"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_everything_else": {
+      "type": "PATTERN",
+      "value": "[^{}\\n\\r\\s]"
+    },
+    "double_curlies": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{{"
+        },
+        {
+          "type": "STRING",
+          "value": "}}"
+        }
+      ]
+    },
+    "escaped_curly": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\\{"
+        },
+        {
+          "type": "STRING",
+          "value": "\\}"
+        }
+      ]
+    },
+    "opening_curly": {
+      "type": "STRING",
+      "value": "{"
+    },
+    "closing_curly": {
+      "type": "STRING",
+      "value": "}"
+    },
+    "equals": {
+      "type": "STRING",
+      "value": "="
+    },
+    "colon": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": ":"
+      }
+    },
+    "fill_align": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[^{}<\\^>\\n\\r]?[<\\^>]"
+      }
+    },
+    "sign": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[\\-+ ]"
+      }
+    },
+    "hash": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "#"
+      }
+    },
+    "zero": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "0"
+      }
+    },
+    "min_width": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[1-9][0-9]*"
+      }
+    },
+    "precision": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "\\.[1-9][0-9]*"
+      }
+    },
+    "type": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[bdoxXeEfFgG]"
+      }
     }
   },
   "extras": [

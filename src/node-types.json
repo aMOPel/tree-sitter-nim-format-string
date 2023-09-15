@@ -1,22 +1,170 @@
 [
   {
-    "type": "everything_else_inside",
+    "type": "double_curlies",
     "named": true,
     "fields": {}
   },
   {
+    "type": "escaped_curly",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "format_specifiers",
+    "named": true,
+    "fields": {
+      "fill_align": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "fill_align",
+            "named": true
+          }
+        ]
+      },
+      "hash": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "hash",
+            "named": true
+          }
+        ]
+      },
+      "min_width": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "min_width",
+            "named": true
+          }
+        ]
+      },
+      "precision": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "precision",
+            "named": true
+          }
+        ]
+      },
+      "sign": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "sign",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      },
+      "zero": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "zero",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "matching_curlies",
     "named": true,
-    "fields": {},
+    "fields": {
+      "closing_curly": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "closing_curly",
+            "named": true
+          }
+        ]
+      },
+      "equals": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "equals",
+            "named": true
+          }
+        ]
+      },
+      "nim_expression": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "nim_expression",
+            "named": true
+          }
+        ]
+      },
+      "opening_curly": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "opening_curly",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
       "required": false,
       "types": [
         {
-          "type": "everything_else_inside",
+          "type": "format_specifiers",
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "nim_expression",
+    "named": true,
+    "fields": {
+      "escaped_curly": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "escaped_curly",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -43,6 +191,10 @@
       "required": false,
       "types": [
         {
+          "type": "double_curlies",
+          "named": true
+        },
+        {
           "type": "matching_curlies",
           "named": true
         }
@@ -50,11 +202,63 @@
     }
   },
   {
-    "type": "{",
+    "type": "\\{",
     "named": false
   },
   {
-    "type": "}",
+    "type": "\\}",
+    "named": false
+  },
+  {
+    "type": "closing_curly",
+    "named": true
+  },
+  {
+    "type": "colon",
+    "named": true
+  },
+  {
+    "type": "equals",
+    "named": true
+  },
+  {
+    "type": "fill_align",
+    "named": true
+  },
+  {
+    "type": "hash",
+    "named": true
+  },
+  {
+    "type": "min_width",
+    "named": true
+  },
+  {
+    "type": "opening_curly",
+    "named": true
+  },
+  {
+    "type": "precision",
+    "named": true
+  },
+  {
+    "type": "sign",
+    "named": true
+  },
+  {
+    "type": "type",
+    "named": true
+  },
+  {
+    "type": "zero",
+    "named": true
+  },
+  {
+    "type": "{{",
+    "named": false
+  },
+  {
+    "type": "}}",
     "named": false
   }
 ]

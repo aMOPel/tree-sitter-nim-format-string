@@ -1,0 +1,404 @@
+================================================================================
+all
+================================================================================
+
+{asdf:w<-#04321.12X}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (fill_align)
+        (sign)
+        (hash)
+        (zero)
+        (min_width)
+        (precision)
+        (type))
+      (closing_curly))))
+
+================================================================================
+colon
+================================================================================
+
+{asdf:}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon))
+      (closing_curly))))
+
+================================================================================
+align
+================================================================================
+
+{asdf:<}
+{asdf:^}
+{asdf:>}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (fill_align))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (fill_align))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (fill_align))
+      (closing_curly))))
+
+================================================================================
+fill
+================================================================================
+
+{asdf:a<}
+{asdf:-<}
+{asdf:+<}
+{asdf:0<}
+{asdf:#<}
+{asdf:1<}
+{asdf:.<}
+{asdf:X<}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (fill_align))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (fill_align))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (fill_align))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (fill_align))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (fill_align))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (fill_align))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (fill_align))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (fill_align))
+      (closing_curly))))
+
+================================================================================
+ERROR fill
+================================================================================
+
+{asdf:a}
+{asdf:{<}
+{asdf:}<}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon))
+      (ERROR)
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon))
+      (ERROR
+        (opening_curly))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon))
+      (closing_curly)))
+  (ERROR
+    (closing_curly)))
+
+================================================================================
+sign
+================================================================================
+
+{asdf: }
+{asdf:-}
+{asdf:+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (sign))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (sign))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (sign))
+      (closing_curly))))
+
+================================================================================
+hash
+================================================================================
+
+{asdf:#}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (hash))
+      (closing_curly))))
+
+================================================================================
+zero
+================================================================================
+
+{asdf:0}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (zero))
+      (closing_curly))))
+
+================================================================================
+min_width
+================================================================================
+
+{asdf:1}
+{asdf:1234}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (min_width))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (min_width))
+      (closing_curly))))
+
+================================================================================
+precision
+================================================================================
+
+{asdf:.1}
+{asdf:.1234}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (precision))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (precision))
+      (closing_curly))))
+
+================================================================================
+type
+================================================================================
+
+{asdf:b}
+{asdf:d}
+{asdf:o}
+{asdf:x}
+{asdf:X}
+{asdf:e}
+{asdf:E}
+{asdf:f}
+{asdf:F}
+{asdf:g}
+{asdf:G}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (type))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (type))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (type))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (type))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (type))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (type))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (type))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (type))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (type))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (type))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (format_specifiers
+        (colon)
+        (type))
+      (closing_curly))))

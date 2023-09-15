@@ -1,0 +1,210 @@
+================================================================================
+Basics
+================================================================================
+
+{asdf}
+asdf{asdf}asdf
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (closing_curly))))
+
+================================================================================
+Whitespace
+================================================================================
+
+    {as df }     
+asdf{ a s d f}asdf
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (closing_curly))))
+
+================================================================================
+Multiline
+================================================================================
+
+{
+asdf
+}
+asdf{as
+df}asdf
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (closing_curly))))
+
+================================================================================
+MISSING Single open curly
+================================================================================
+
+asdf{asdf
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (MISSING closing_curly))))
+
+================================================================================
+ERROR Single close curly
+================================================================================
+
+as}as
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content)
+  (ERROR
+    (closing_curly)))
+
+================================================================================
+ERROR Stray curly
+================================================================================
+
+asdf{}}asdf
+asdf{{}asdf
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (ERROR
+        (closing_curly)
+        (closing_curly))
+      (nim_expression)
+      (ERROR)
+      (closing_curly))))
+
+================================================================================
+Double curlies
+================================================================================
+
+{{{asdf}{{}}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (double_curlies)
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (closing_curly))
+    (double_curlies)
+    (double_curlies)))
+
+================================================================================
+Escaped curlies
+================================================================================
+
+asdf{\{\}}asdf
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression
+        (escaped_curly)
+        (escaped_curly))
+      (closing_curly))))
+
+================================================================================
+Equals
+================================================================================
+
+asdf{asdf=}asdf
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (equals)
+      (closing_curly))))
+
+================================================================================
+ERROR Bad equals
+================================================================================
+
+asdf{asdf==}asdf
+asdf{=asdf}asdf
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (matching_curlies
+      (opening_curly)
+      (nim_expression)
+      (equals)
+      (ERROR
+        (equals))
+      (closing_curly))
+    (matching_curlies
+      (opening_curly)
+      (ERROR
+        (equals))
+      (nim_expression)
+      (closing_curly))))
+
+================================================================================
+complex
+================================================================================
+
+asdf{{
+  }}{\{asdf
+   \}=}as{{df{{
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (string_content
+    (double_curlies)
+    (double_curlies)
+    (matching_curlies
+      (opening_curly)
+      (nim_expression
+        (escaped_curly)
+        (escaped_curly))
+      (equals)
+      (closing_curly))
+    (double_curlies)
+    (double_curlies)))
