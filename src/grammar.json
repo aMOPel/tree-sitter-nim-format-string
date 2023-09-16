@@ -6,14 +6,14 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "string_content"
+          "name": "string_literal"
         },
         {
           "type": "BLANK"
         }
       ]
     },
-    "string_content": {
+    "string_literal": {
       "type": "REPEAT1",
       "content": {
         "type": "CHOICE",
@@ -93,8 +93,12 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "format_specifiers"
+              "type": "FIELD",
+              "name": "format_specifiers",
+              "content": {
+                "type": "SYMBOL",
+                "name": "format_specifiers"
+              }
             },
             {
               "type": "BLANK"
@@ -115,8 +119,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "colon"
+          "type": "FIELD",
+          "name": "colon",
+          "content": {
+            "type": "SYMBOL",
+            "name": "colon"
+          }
         },
         {
           "type": "CHOICE",
@@ -275,11 +283,8 @@
       "value": "="
     },
     "colon": {
-      "type": "IMMEDIATE_TOKEN",
-      "content": {
-        "type": "STRING",
-        "value": ":"
-      }
+      "type": "STRING",
+      "value": ":"
     },
     "fill_align": {
       "type": "IMMEDIATE_TOKEN",

@@ -1,13 +1,13 @@
 module.exports = grammar({
   name: 'nim_format_string',
 
-  extras: $ => [
+  extras: _ => [
     /[\n\r\s]+/,
   ],
 
   rules: {
-    source_file: $ => optional($.string_content),
-    string_content: $ => repeat1(choice($.matching_curlies, $._everything_else, $.double_curlies)),
+    source_file: $ => optional($.string_literal),
+    string_literal: $ => repeat1(choice($.matching_curlies, $._everything_else, $.double_curlies)),
     matching_curlies: $ => seq(
       field('opening_curly', $.opening_curly),
       field('nim_expression', alias(repeat1(choice(
@@ -15,12 +15,12 @@ module.exports = grammar({
         field('escaped_curly', $.escaped_curly,),
       )), $.nim_expression)),
       optional(field('equals', $.equals)),
-      optional($.format_specifiers),
+      optional(field('format_specifiers', $.format_specifiers)),
       field('closing_curly', $.closing_curly),
     ),
 
     format_specifiers: $ => seq(
-      $.colon,
+      field('colon', $.colon),
       optional(field('fill_align', $.fill_align)),
       optional(field('sign', $.sign)),
       optional(field('hash', $.hash)),
@@ -37,7 +37,7 @@ module.exports = grammar({
     closing_curly: _ => '}',
     equals: _ => '=',
 
-    colon: _ => token.immediate(':'),
+    colon: _ => ':',
     // NOTE: `[^{}<\^>]` is not according to spec but otherwise things break
     // BUG: the fill char can't be <space>, collision with $.sign
     fill_align: _ => token.immediate(/[^{}<\^>\n\r]?[<\^>]/),

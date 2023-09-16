@@ -13,6 +13,16 @@
     "type": "format_specifiers",
     "named": true,
     "fields": {
+      "colon": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "colon",
+            "named": true
+          }
+        ]
+      },
       "fill_align": {
         "multiple": false,
         "required": false,
@@ -83,16 +93,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "colon",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -119,6 +119,16 @@
           }
         ]
       },
+      "format_specifiers": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "format_specifiers",
+            "named": true
+          }
+        ]
+      },
       "nim_expression": {
         "multiple": false,
         "required": true,
@@ -139,16 +149,6 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "format_specifiers",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -176,14 +176,14 @@
       "required": false,
       "types": [
         {
-          "type": "string_content",
+          "type": "string_literal",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "string_content",
+    "type": "string_literal",
     "named": true,
     "fields": {},
     "children": {

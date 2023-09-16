@@ -8,7 +8,7 @@ asdf{asdf}asdf
 --------------------------------------------------------------------------------
 
 (source_file
-  (string_content
+  (string_literal
     (matching_curlies
       (opening_curly)
       (nim_expression)
@@ -28,7 +28,7 @@ asdf{ a s d f}asdf
 --------------------------------------------------------------------------------
 
 (source_file
-  (string_content
+  (string_literal
     (matching_curlies
       (opening_curly)
       (nim_expression)
@@ -51,7 +51,7 @@ df}asdf
 --------------------------------------------------------------------------------
 
 (source_file
-  (string_content
+  (string_literal
     (matching_curlies
       (opening_curly)
       (nim_expression)
@@ -70,7 +70,7 @@ asdf{asdf
 --------------------------------------------------------------------------------
 
 (source_file
-  (string_content
+  (string_literal
     (matching_curlies
       (opening_curly)
       (nim_expression)
@@ -85,7 +85,7 @@ as}as
 --------------------------------------------------------------------------------
 
 (source_file
-  (string_content)
+  (string_literal)
   (ERROR
     (closing_curly)))
 
@@ -99,7 +99,7 @@ asdf{{}asdf
 --------------------------------------------------------------------------------
 
 (source_file
-  (string_content
+  (string_literal
     (matching_curlies
       (opening_curly)
       (ERROR
@@ -118,7 +118,7 @@ Double curlies
 --------------------------------------------------------------------------------
 
 (source_file
-  (string_content
+  (string_literal
     (double_curlies)
     (matching_curlies
       (opening_curly)
@@ -136,7 +136,7 @@ asdf{\{\}}asdf
 --------------------------------------------------------------------------------
 
 (source_file
-  (string_content
+  (string_literal
     (matching_curlies
       (opening_curly)
       (nim_expression
@@ -153,7 +153,7 @@ asdf{asdf=}asdf
 --------------------------------------------------------------------------------
 
 (source_file
-  (string_content
+  (string_literal
     (matching_curlies
       (opening_curly)
       (nim_expression)
@@ -170,7 +170,7 @@ asdf{=asdf}asdf
 --------------------------------------------------------------------------------
 
 (source_file
-  (string_content
+  (string_literal
     (matching_curlies
       (opening_curly)
       (nim_expression)
@@ -196,7 +196,7 @@ asdf{{
 --------------------------------------------------------------------------------
 
 (source_file
-  (string_content
+  (string_literal
     (double_curlies)
     (double_curlies)
     (matching_curlies
